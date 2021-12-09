@@ -158,3 +158,18 @@ bindsym $mod+d exec "dmenu_run -nf '#F8F8F2' -nb '#1E1F29' -sb '#ff79c6' -sf '#F
 
 # Do not follow mouse
 focus_follows_mouse no
+
+
+##################################
+#------------i3-gaps-------------#
+##################################
+
+# Gap dimensions
+gaps inner 6
+gaps outer 2
+
+# Only enable gaps on a workspace when there is at least one container
+# smart_gaps on
+
+# Hide edge borders only if there is one window with no gaps
+hide_edge_borders smart_no_gaps
