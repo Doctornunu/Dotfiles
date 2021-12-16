@@ -43,14 +43,14 @@ fi
 # Start polkit
 lxpolkit &
 
-# Start autokey (For Altgr support via ctrl + alt)
+# Start autokey (Remap some iso keybindings)
 autokey &
 
 # Start a terminal
 /usr/bin/X11/terminator &
 
 # Set wallpaper
-feh --bg-fill /usr/share/wallpapers/firewatch-warm.png &
+feh --bg-fill /usr/share/wallpapers/jinx-nord.png &
 
 # Start the systems window manager.
-exec /usr/bin/X11/i3
+exec /usr/local/bin/i3
