@@ -47,7 +47,7 @@ lxpolkit &
 autokey &
 
 # Start a terminal
-/usr/bin/X11/terminator &
+# /usr/bin/X11/terminator &
 
 # Set wallpaper
 feh --bg-fill /usr/share/wallpapers/jinx-nord.png &
