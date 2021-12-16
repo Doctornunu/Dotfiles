@@ -103,11 +103,6 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym Left resize shrink width 50 px or 50 ppt
         bindsym Down resize grow height 50 px or 50 ppt
         bindsym Up resize shrink height 50 px or 50 ppt
@@ -146,14 +141,19 @@ client.background       #F8F8F2
 # }
 # }
 
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always compton
-
 # remove borders
 for_window [class="^.*"] border pixel 3
 
-# lock screenx
-bindsym $mod+l exec --no-startup-id SDL_VIDEO_FULLSCREEN_HEAD=0 i3lock --color=282a36
+
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id compton --config $HOME/.config/compton.conf
+
+# lock screen
+exec --no-startup-id xautolock -time 5 -locker $HOME/.config/i3/neolock.sh
+bindsym $mod+l exec --no-startup-id SDL_VIDEO_FULLSCREEN_HEAD=0 $HOME/.config/i3/neolock.sh
+
+
+# bindsym $mod+l exec --no-startup-id SDL_VIDEO_FULLSCREEN_HEAD=0 i3lock --color=282a36
 
 # start dmenu
 bindsym $mod+d exec "dmenu_run -nf '#F8F8F2' -nb '#2E3440' -sb '#BF616A' -sf '#F8F8F2' -fn 'monolisa-10'"
