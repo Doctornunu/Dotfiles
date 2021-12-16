@@ -49,21 +49,25 @@ format-offset =
 
 [colors]
 ; Nord theme ============
-; background = #282c34
-; foreground = #abb2bf
-; alert = #bd2c40
-; volume-min = #a3be8c
-; volume-med = #ebcb8b
-; volume-max = #bf616a
+background = #2E3440
+foreground = #ebcb8b
+alert = #bd2c40
+volume-min = #a3be8c
+volume-med = #ebcb8b
+volume-max = #bf616a
+background-a1 = #bf616a
+background-a2 = #ebcb8b
+module-foreground = #2E3440
+underline-fill = #bf616a
 ; =======================
 
 ; Dracula theme =========
-background = #1E1F29
-foreground = #f8f8f2
-alert = #ff5555
-volume-min = #50fa7b
-volume-med = #f1fa8c
-volume-max = #ff5569
+; background = #1E1F29
+; foreground = #f8f8f2
+; alert = #ff5555
+; volume-min = #50fa7b
+; volume-med = #f1fa8c
+; volume-max = #ff5569
 
 ; Gotham theme ==========
 ; background = #0a0f14
@@ -126,7 +130,7 @@ font-2 = "FontAwesome:style=Regular:pixelsize=8;1"
 modules-left = i3 xwindow
 modules-center =
 modules-right = arrow1 arrow2 memory2 arrow3 cpu2 arrow2 date
-# modules-right = arrow1 arrow2 memory2 arrow3 cpu2 arrow2 date
+
 separator =
 
 ;dim-value = 1.0
@@ -253,7 +257,7 @@ label-mode-background = #FFBB00
 label-focused = %icon% %name%
 label-focused-background = ${colors.background}
 label-focused-foreground = ${colors.foreground}
-label-focused-underline = #ff79c6
+label-focused-underline = ${colors.underline-fill}
 label-focused-padding = 2
 
 ; Available tokens:
@@ -301,24 +305,24 @@ format-background = ${colors.background}
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = #ff79c6
-content-background = #1E1F29
+content-foreground = ${colors.background-a1}
+content-background = ${colors.background}
 
 [module/arrow2]
 ; grey to Blue
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = #bd93f9
-content-background = #ff79c6
+content-foreground = ${colors.background-a2}
+content-background = ${colors.background-a1}
 
 [module/arrow3]
 ; grey to Blue
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = #ff79c6
-content-background = #bd93f9
+content-foreground = ${colors.background-a1}
+content-background = ${colors.background-a2}
 
 ################################################################################
 ###############################################################################
@@ -399,10 +403,10 @@ type = internal/cpu
 ; Seconds to sleep between updates
 ; Default: 1
 interval = 1
-format-foreground = #fefefe
-format-background = #ff79c6
+format-foreground = ${colors.module-foreground}
+format-background = ${colors.background-a1}
 format-prefix = " "
-format-prefix-foreground = #fefefe
+format-prefix-foreground = ${colors.module-foreground}
 
 label-font = 1
 
@@ -426,7 +430,7 @@ label = Cpu %percentage:3%%
 ;https://github.com/jaagr/polybar/wiki/Module:-date
 type = internal/date
 ; Seconds to sleep between updates
-interval = 5
+interval = 1
 ; See "http://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
 ; NOTE: if you want to use syntax tags here you need to use %%{...}
 date = " %Y-%m-%d"
@@ -434,9 +438,9 @@ date-alt = " %Y-%m-%d"
 time = "%H:%M:%S"
 time-alt = "%H:%M:%S"
 format-prefix = " "
-format-prefix-foreground = #fefefe
-format-foreground = #fefefe
-format-background = #bd93f9
+format-prefix-foreground = ${colors.module-foreground}
+format-foreground = ${colors.module-foreground}
+format-background = ${colors.background-a2}
 label = "%date% %time% "
 
 #################################################################
@@ -634,9 +638,9 @@ label = %percentage_used%%
 
 format = Mem <label>
 format-prefix = " "
-format-prefix-foreground = #fefefe
-format-foreground = #fefefe
-format-background = #bd93f9
+format-prefix-foreground = ${colors.background}
+format-foreground = ${colors.background}
+format-background = ${colors.background-a2}
 
 ################################################################################
 
@@ -1058,8 +1062,8 @@ label = %title%
 label-maxlen = 50
 
 format-prefix = "  "
-format-prefix-underline = #292d3e
-format-underline = #ff79c6
+format-prefix-underline = ${colors.background}
+format-underline = ${colors.underline-fill}
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 

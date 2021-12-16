@@ -39,10 +39,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Left move left 50
+bindsym $mod+Shift+Down move down 50
+bindsym $mod+Shift+Up move up 50
+bindsym $mod+Shift+Right move right 50
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -108,10 +108,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 50 px or 50 ppt
+        bindsym Down resize grow height 50 px or 50 ppt
+        bindsym Up resize shrink height 50 px or 50 ppt
+        bindsym Right resize grow width 50 px or 50 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -121,8 +121,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # class                 border  bground text    indicator child_border
-client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
-client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.focused          #BF616A #6272A4 #F8F8F2 #BF616A   #BF616A
+client.focused_inactive #4C566A #44475A #F8F8F2 #4C566A   #4C566A
 client.unfocused        #282A36 #282A36 #F8F8F2 #282A36   #282A36
 client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
 client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
@@ -147,25 +147,26 @@ client.background       #F8F8F2
 # }
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always compton
+
 # remove borders
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 3
 
 # lock screenx
 bindsym $mod+l exec --no-startup-id SDL_VIDEO_FULLSCREEN_HEAD=0 i3lock --color=282a36
 
 # start dmenu
-bindsym $mod+d exec "dmenu_run -nf '#F8F8F2' -nb '#1E1F29' -sb '#ff79c6' -sf '#F8F8F2' -fn 'monolisa-10'"
+bindsym $mod+d exec "dmenu_run -nf '#F8F8F2' -nb '#2E3440' -sb '#BF616A' -sf '#F8F8F2' -fn 'monolisa-10'"
 
 # Do not follow mouse
 focus_follows_mouse no
-
 
 ##################################
 #------------i3-gaps-------------#
 ##################################
 
 # Gap dimensions
-gaps inner 6
+gaps inner 12
 gaps outer 2
 
 # Only enable gaps on a workspace when there is at least one container
